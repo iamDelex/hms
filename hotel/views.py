@@ -322,7 +322,7 @@ def placeorder(request):
         api_key = 'sk_test_728b856f01a2849f148286c26ca2dcdc61870fbd' #This is from paystack
         # api_key = 'sk_test_1690919ca38995c567f6aa2748e35877709b5ff4' #This is from paystack
         curl = 'https://api.paystack.co/transaction/initialize' #This is from paystack Api documentation
-        cburl = 'http://3.82.235.18/paidorder' #This ip '18.130.184.224' address is from the one i got from AWS.
+        cburl = 'http://54.146.132.15/paidorder' #This ip '18.130.184.224' address is from the one i got from AWS.
         ref_num = str(uuid.uuid4())
         cartno = Profile.objects.get(user__username=request.user.username)
         # order_num = cartno.id
