@@ -217,8 +217,11 @@ def addtocart(request):
                 newitem.check_out = checkout
                 newitem.order_no = cart_code
                 newitem.item_paid = False
-                newitem.save()
-                messages.success(request, 'added!')
+                if  newitem.check_out > newitem.check_in:
+                    newitem.save()
+                    messages.success(request, 'added!')
+                else:
+                    messages.error(request, 'invalid date')
                 return redirect('rooms')
                 
         else: # create a cart
@@ -229,8 +232,11 @@ def addtocart(request):
             newcart.check_out = checkout
             newcart.order_no = cart_code
             newcart.item_paid = False
-            newcart.save()
-            messages.success(request, f'This room has been added to your cart, kindly checkout or continue')
+            if  newcart.check_out > newcart.check_in:
+                newcart.save()
+                messages.success(request, f'This room has been added to your cart, kindly checkout or continue')
+            else:
+                messages.error(request, 'invalid date')
             
     return redirect('rooms')
 # Addtocart Done
