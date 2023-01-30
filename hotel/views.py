@@ -276,7 +276,7 @@ def cartpage(request):
 
 
 @login_required(login_url='signin')
-def remove_item(request): #This is the function to remove an item from the cart page.
+def remove_items(request): #This is the function to remove an item from the cart page.
     deleteitem = request.POST['deleteitem']
     Booking.objects.filter(pk=deleteitem).delete()
     messages.success(request, 'Room successfully deleted from your cart')

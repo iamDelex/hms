@@ -22,7 +22,7 @@
                 {% for item in cart %}
                     <tr>
                         <td>
-                            <form action="{% url 'remove_item' %}" method="POST">
+                            <form action="{% url 'remove_items' %}" method="POST">
                                 {% csrf_token %}
                                 <input type="hidden" name="deleteitem" value="{{item.id}}">
                                 <button type="submit"><i class="fas fa-trash-alt text-danger" style="cursor: pointer;"></i></button>
